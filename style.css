@@ -1,0 +1,49 @@
+* {
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header {
+    background: whitesmoke;
+}
+
+.hero-text {
+    
+  background: linear-gradient(red, blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.5s ease;
+}
+.js-input {
+    width: 60%;
+   background: Whitesmoke;
+   outline: none;
+}
+.js-date {
+    width: 20%;
+    
+}
+.containTodo {
+    gap: 15px;
+}
+.addButton {
+    width: 15%;
+    background: linear-gradient(to top right, green, blue);
+}
+.todo-card {
+    border-radius: 1rem;
+}
+.text {
+    display: flex;
+    flex-wrap: wrap;
+}
+.error-message {
+    color: red;
+}
+.hover {
+    background: black;
+}
