@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>To-do list</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google fonts -->
+
+
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+  <!-- font awesome -->
+  <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  
+  
+</head>
+
+<body>
+  <header class=" header fixed top-0 h-20 w-full flex justify-between top-0 z-50 mb-20 py-1">
+    
+   
+      
+      <a class="text-2xl p-4 md:text-5xl"><i class="fa-solid fa-bars "></i></a>
+    
+    
+    
+   
+      <a class=" text-2xl p-4  md:text-5xl" id="moon"><i id="icon" class="fa-solid fa-moon"></i></a>
+    
+  </header>
+  
+ <section id="Hero-section" class="pt-56">
+   
+   
+   <h1 class="hero-text text-5xl font-bold p-4 md:text-7xl leading-normal z-1">
+     Create 
+     
+   <br>your 
+   
+   <br>own task 
+   
+   </h1>
+   
+ </section>
+ 
+  <div class=" flex  mt-24  p-2 space-x-2">
+<input 
+
+placeholder="Enter your task" 
+
+class="js-input p-4 rounded-full"
+/>
+<input type="date" 
+
+class="js-date rounded-full" 
+
+placeholder="Date"
+
+value="2001-01-01"
+/>
+
+<button class="addButton rounded-full">
+  
+  Add
+  
+  </button>
+  
+</div>
+<p class="error-message p-4 text-lg"></p>
+<div class="containTodo flex flex-col mx-auto w-full p-4 max-w-md md:flex-row"></div>
+
+  <script src="main.js"></script>
+  
+</body>
+</html>
