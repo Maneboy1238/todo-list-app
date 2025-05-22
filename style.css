@@ -1,5 +1,4 @@
 * {
-    user-select: none;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,7 +16,11 @@
     border-radius: 0.8rem;
     transition: all 0.5s ease;
 }
+header {
+    user-select: none;
+}
 .hero-text {
+    user-select: none;
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
   -webkit-background-clip: text;
@@ -31,6 +34,7 @@
     width: 60%;
    background: Whitesmoke;
    outline: none;
+   user-select: auto;
 }
 .js-date {
     width: 20%;
@@ -40,6 +44,9 @@
     gap: 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.js {
+    user-select: none;
+}
 .addButton {
     width: 15%;
     background:  linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
@@ -47,6 +54,7 @@ color: white;
 }
 .todo-card {
     border-radius: 1rem;
+    user-select: text;
 }
 .text {
     display: flex;
