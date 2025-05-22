@@ -140,13 +140,7 @@ function addToDo() {
       }, 500);
     }
 
-    // Fix: get saved todos only if exist
-    const savedTodosString = localStorage.getItem('todo');
-    let savedTodosArray = [];
-    if (savedTodosString) {
-      savedTodosArray = JSON.parse(savedTodosString);
-    }
-
+    
     todo.push({ name, date });
 
     inputElem.value = '';
