@@ -3,14 +3,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 .header {
     background: whitesmoke;
 }
-
+.toast {
+    display: block;
+    opacity: 0;
+    width: 40%;
+    right: 0;
+    transform: translateX(2rem);
+    border-radius: 0.8rem;
+    transition: all 0.5s ease;
+}
 .hero-text {
-    
-  background: linear-gradient(red, blue);
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
@@ -29,10 +38,12 @@
 }
 .containTodo {
     gap: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .addButton {
     width: 15%;
-    background: linear-gradient(to top right, green, blue);
+    background:  linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+color: white;
 }
 .todo-card {
     border-radius: 1rem;
