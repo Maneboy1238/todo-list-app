@@ -102,7 +102,7 @@ function renderTodoList() {
         <p class="text-sm text-gray-500 text-left">${date}</p>
         <p class="text text-lg text-center leading-snug whitespace-normal break-all mt-8 mb-8">${name}</p>
         <div class="flex justify-end">
-          <button onclick="deleteToDo(${i})" class="text-red-500 hover:text-red-700">Cancel</button>
+          <button onclick="deleteToDo(${i})" class="text-red-500 hover:text-red-700">Delete</button>
         </div>
       </div>
     `;
