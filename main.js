@@ -10,7 +10,7 @@ const header = document.querySelector('.header');
 const inputElem = document.querySelector('.js-input');
 
 const dateElem = document.querySelector('.js-date');
-
+const timeElem = document.querySelector('.js-time');
 const addButton = document.querySelector('.addButton');
 
 /* Icon animation */
@@ -89,6 +89,7 @@ function renderTodoList() {
     const todoList = todo[i];
     const name = todoList.name;
     const date = todoList.date;
+    const time = todoList.time;
 
     let background = '';
     if (isDarkMode === true) {
@@ -99,7 +100,10 @@ function renderTodoList() {
 
     const html = `
       <div class="todo-card p-8 flex flex-col max-w-md" style="background: ${background}">
-        <p class="text-sm text-gray-500 text-left">${date}</p>
+      <div class="flex flex-row justify-between space-x-4 text-gray-500"
+        <p class="text-sm  text-left">${date}</p>
+        <p>${time}</p>
+        </div>
         <p class="text text-lg text-center leading-snug whitespace-normal break-all mt-8 mb-8">${name}</p>
         <div class="flex justify-end">
           <button onclick="deleteToDo(${i})" class="text-red-500 hover:text-red-700 select-none">Delete</button>
@@ -117,9 +121,9 @@ function addToDo() {
   const name = inputElem.value.trim();
   const date = dateElem.value.trim();
   const toast = document.querySelector('.toast');
-
-  if (name === '' || date === '') {
-    p.innerHTML = 'Enter a task and a due date';
+const time = timeElem.value
+  if (name === '' || date === '' || time === '') {
+    p.innerHTML = 'Enter a task, a due date and due time';
     return;
   } else {
     p.innerHTML = '';
@@ -141,11 +145,11 @@ function addToDo() {
     }
 
     
-    todo.push({ name, date });
+    todo.push({ name, date, time });
 
     inputElem.value = '';
     dateElem.value = '';
-
+    timeElem.value = '';
     renderTodoList();
     setItem();
   }

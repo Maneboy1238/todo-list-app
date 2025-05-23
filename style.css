@@ -31,7 +31,7 @@ header {
   transition: all 1.5s ease;
 }
 .js-input {
-    width: 60%;
+    width: 50%;
    background: Whitesmoke;
    outline: none;
    user-select: auto;
@@ -39,6 +39,9 @@ header {
 .js-date {
     width: 20%;
     
+}
+.js-time {
+    width: 20%;
 }
 .containTodo {
     gap: 15px;
@@ -48,7 +51,7 @@ header {
     user-select: none;
 }
 .addButton {
-    width: 15%;
+    width: 10%;
     background:  linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
 color: white;
 }
