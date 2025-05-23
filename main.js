@@ -26,6 +26,7 @@ moon.addEventListener(
             btm.style.background = 'black';
           }
         );
+        timeElem.style.background = 'black';
         inputElem.style.background = 'black';
         dateElem.style.background = 'black';
         document.body.style.background = '#121212';
@@ -43,6 +44,7 @@ moon.addEventListener(
             btn.style.background = 'whitesmoke';
           }
         );
+        timeElem.style.background = 'whitesmoke';
         inputElem.style.background = 'whitesmoke';
         dateElem.style.background = 'whitesmoke';
         document.body.style.background = '#fff';
