@@ -91,7 +91,7 @@ function renderTodoList() {
     const todoList = todo[i];
     const name = todoList.name;
     const date = todoList.date;
-    const time = todoList.time;
+    const time = todoList.formattedTime;
 
     let background = '';
     if (isDarkMode === true) {
@@ -122,8 +122,24 @@ function renderTodoList() {
 function addToDo() {
   const name = inputElem.value.trim();
   const date = dateElem.value.trim();
-  const toast = document.querySelector('.toast');
+  
+  
+  
 const time = timeElem.value
+const hour = parseInt(time.split(":")[0]);
+  
+  const minute = time.split(":")[1];
+  let period = '';
+  if (hour >= 12) {
+    period = 'pm';
+  }
+  else {
+    period = 'am';
+  }
+  const formattedTime = `${hour}:${minute} ${period}`;
+  const toast = document.querySelector('.toast');
+  
+  
   if (name === '' || date === '' || time === '') {
     p.innerHTML = 'Enter a task, a due date and due time';
     return;
@@ -147,7 +163,7 @@ const time = timeElem.value
     }
 
     
-    todo.push({ name, date, time });
+    todo.push({ name, date, formattedTime });
 
     inputElem.value = '';
     dateElem.value = '';
