@@ -2,7 +2,6 @@
 let isDarkMode = false;
 const moon = document.querySelector('#moon');
 const headerText = document.querySelector('.header-text');
-let p = document.querySelector('.error-message');
 const icon = document.querySelector('#icon');
 
 const header = document.querySelector('.header');
@@ -28,9 +27,9 @@ moon.addEventListener(
           }
         );
         inputCon.style.background = 'black';
-        timeElem.style.background = '#121212';
+        timeElem.style.background = 'black';
         inputElem.style.background = 'black';
-        dateElem.style.background = '#121212';
+        dateElem.style.background = 'black';
         document.body.style.background = '#121212';
         document.body.style.color = '#fff';
         header.style.background = 'black';
@@ -47,9 +46,9 @@ moon.addEventListener(
           }
         );
         inputCon.style.background = 'whitesmoke';
-        timeElem.style.background = 'white';
+        timeElem.style.background = 'whitesmoke';
         inputElem.style.background = 'whitesmoke';
-        dateElem.style.background = 'white';
+        dateElem.style.background = 'whitesmoke';
         document.body.style.background = '#fff';
         document.body.style.color = 'black';
         header.style.background = 'whitesmoke';
@@ -104,22 +103,24 @@ function renderTodoList() {
     }
 
     const html = `
-      <div class="todo-card p-8 flex flex-col max-w-md" style="background: ${background}">
-      <div class="flex flex-row justify-between space-x-4 text-gray-500"
-        <p class="text-sm  text-left">${date}</p>
+      <div class="todo-card p-4 flex flex-col max-w-md md:p-6" style="background: ${background}">
+      <div class="flex flex-row justify-between text-xs space-x-4 text-gray-500 md:text-base"
+        <p class="text-left">${date}</p>
         <p>${time}</p>
         </div>
-        <p class="text text-lg text-center leading-snug whitespace-normal break-all mt-8 mb-8">${name}</p>
+        <p class="text text-sm text-center whitespace-normal break-all mt-2 mb-2 md:text-xl">${name}</p>
         <div class="flex justify-end">
-          <button onclick="deleteToDo(${i})" class="text-red-500 hover:text-red-700 select-none">Delete</button>
+          <button onclick="deleteToDo(${i})" class="text-red-500 text-sm hover:text-red-700 select-none">Delete</button>
         </div>
       </div>
     `;
 
     displayTodoList += html;
+    
   }
 
   document.querySelector('.containTodo').innerHTML = displayTodoList;
+  observeTodoCards();
 }
 
 function addToDo() {
@@ -144,26 +145,26 @@ const hour = parseInt(time.split(":")[0]);
   
   
   if (name === '' || date === '' || time === '') {
-    p.innerHTML = 'Enter a task, a due date and due time';
-    return;
-  } else {
-    p.innerHTML = '';
-    toast.innerHTML = '<p>Your task has been created</p>';
-    toast.style.transform = `translateX(0)`;
-    toast.style.opacity = 1;
+    toast.innerHTML = 'Enter a task, a due date and due time';
+     toast.style.opacity = 1;
     toast.style.transition = 'none';
-
+       toast.style.background = 'indianred';
     setTimeout(() => {
       toast.style.opacity = 0;
       toast.style.transition = 'all 1s ease';
     }, 2000);
-
-    const todoContainer = document.querySelector('.containTodo');
-    if (todoContainer) {
-      setTimeout(() => {
-        todoContainer.scrollIntoView({ behavior: 'smooth'});
-      }, 500);
-    }
+    return;
+  } else {
+    toast.innerHTML = '<p>Your task has been created</p>';
+    toast.style.transform = `translateX(0)`;
+    toast.style.opacity = 1;
+    toast.style.transition = 'none';
+        toast.style.background = 'lawngreen';
+        hero.innerHTML = 'My Task';
+    setTimeout(() => {
+      toast.style.opacity = 0;
+      toast.style.transition = 'all 1s ease';
+    }, 2000);
 
     
     todo.push({ name, date, formattedTime });
@@ -173,6 +174,7 @@ const hour = parseInt(time.split(":")[0]);
     timeElem.value = '';
     renderTodoList();
     setItem();
+    observeTodoCards();
   }
 }
 
@@ -189,3 +191,39 @@ function deleteToDo(i) {
 function setItem() {
   localStorage.setItem('todo', JSON.stringify(todo));
 }
+// Setup the observer globally
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      hero.innerHTML = 'My task';
+    } else {
+      hero.innerHTML = 'Create your own task';
+    }
+  });
+});
+
+// After DOM is loaded and todos are rendered, observe the card
+function observeTodoCards() {
+  observer.disconnect(); // avoid double observing
+
+  const todoCards = document.querySelectorAll('.todo-card');
+
+  todoCards.forEach(card => observer.observe(card));
+
+  // Check immediately if any card is already in view
+  const inView = Array.from(todoCards).some(card => {
+    const rect = card.getBoundingClientRect();
+    return rect.top >= 0 && rect.bottom <= window.innerHeight;
+  });
+
+  hero.innerHTML = inView ? 'My task' : 'Create <br>your <br>own task';
+}
+window.addEventListener('DOMContentLoaded', () => {
+  observeTodoCards();
+});
+
+inputElem.addEventListener('click',
+  () => {
+    inputCon.style.transform = 'translateY(0)';
+  }
+)

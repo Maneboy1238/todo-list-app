@@ -53,6 +53,8 @@ header {
     user-select: none;
     border-radius: 1.5rem 1.5rem 0 0;
     background: whitesmoke;
+     bottom: 0;
+     transform: translateY(65px);
 }
 .addButton {
     width: 10%;

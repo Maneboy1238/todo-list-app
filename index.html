@@ -23,24 +23,24 @@
 </head>
 
 <body>
-  <header class=" header fixed top-0 h-20 md:h-28 w-full flex justify-between top-0 z-50 mb-20 py-4">
+  <header class=" header fixed top-0 h-20 md:h-24 w-full flex justify-between top-0 z-50 mb-20 py-4 md">
     
    
       
-      <a class="text-2xl p-4 md:text-5xl"><i class="fa-solid fa-bars "></i></a>
+      <a class="text-xl p-4 md:text-2xl"><i class="fa-solid fa-bars "></i></a>
     
     
     <div class="baseline mt-2">
    
-      <a class=" text-2xl p-4  md:text-5xl" id="moon"><i id="icon" class="fa-solid fa-moon"></i></a>
-      <p class="header-text md:text-2xl text-xs">Light mode</p>
+      <a class=" text-xl p-6 top-2 md:text-2xl md:fixed md:right-4 md:top-2" id="moon"><i id="icon" class="fa-solid fa-moon"></i></a>
+      <p class="header-text md:text-xl text-xs md:mt-8">Light mode</p>
    </div>
   </header>
   <div class="toast fixed bg-green-400 p-4 mt-32 mr-4 z-50"></div>
  <section id="Hero-section" class="pt-56">
    
    
-   <h1 class="hero-text text-5xl font-bold p-4 md:text-7xl  z-1">
+   <h1 class="hero-text text-5xl font-bold p-4 md:text-5xl  z-1">
      Create 
      
    <br>your 
@@ -51,14 +51,9 @@
    
  </section>
  
-  
-
-<p class="error-message p-4 text-lg"></p>
-<!--<div class="containTodo flex flex-col mx-auto w-full p-4 md:w-sm md:mx-4 md:flex-wrap md:flex-row lg:w-lg xl:w-xl lg:flex-wrap lg:flex-row lg:mx-4 mb-52"></div>
--->
 <div class="containTodo flex flex-col mx-auto w-full p-4 md:w-sm md:mx-4 md:flex-wrap md:flex-row lg:w-lg xl:w-xl lg:flex-wrap lg:flex-row lg:mx-4 mb-44 pb-8"></div>
 
-<div class="md:flex md:justify-cenrer md:items-center md:mx-auto md:container md:w-full">
+<!--<div class="md:flex md:justify-cenrer md:items-center md:mx-auto md:container md:w-full">
 <div class="js fixed flex flex-col mt-24  p-2 space-y-4 bottom-0 w-full md:static md:max-w-2xl">
 <textarea
 
@@ -88,6 +83,38 @@ value="00:00"
   </button>
   </div>
 </div>
+</div>
+-->
+<!-- PARENT WRAPPER -->
+<div class="md:flex md:justify-center md:items-center md:mx-auto md:w-full md:p-8">
+
+  <!-- FORM CONTAINER -->
+  <div class="js fixed flex flex-col mt-24 p-2 space-y-4 w-full md:static md:max-w-2xl ">
+  
+    <textarea
+      placeholder="Enter your task"
+      class="js-input p-4 h-12 resize-none md:text-lg"
+    ></textarea>
+
+    <div class="flex flex-row space-x-4 mt-0 md:mb-24 md:justify-between ">
+      <input 
+        type="date"
+        class="js-date rounded-full p-4"
+        placeholder="Date"
+        value="2025-05-25"
+      />
+      <input 
+        type="time" 
+        class="js-time rounded-full p-4" 
+        value="12:00"
+      />
+
+      <button class="addButton fixed right-4 p-4 h-12 w-12 rounded-full md:static">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </div>
+    
+  </div>
 </div>
   <script src="main.js"></script>
   
