@@ -225,5 +225,6 @@ window.addEventListener('DOMContentLoaded', () => {
 inputElem.addEventListener('click',
   () => {
     inputCon.style.transform = 'translateY(0)';
+    inputCon.style.position = 'fixed';
   }
 )
