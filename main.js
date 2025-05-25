@@ -12,6 +12,7 @@ const inputElem = document.querySelector('.js-input');
 const dateElem = document.querySelector('.js-date');
 const timeElem = document.querySelector('.js-time');
 const addButton = document.querySelector('.addButton');
+const inputCon = document.querySelector('.js');
 
 /* Icon animation */
 moon.addEventListener(
@@ -23,12 +24,13 @@ moon.addEventListener(
         headerText.innerHTML = 'Dark mode'
         document.querySelectorAll('.todo-card').forEach(
           (btm) => {
-            btm.style.background = 'black';
+            btm.style.background = '#2a213d';
           }
         );
-        timeElem.style.background = 'black';
+        inputCon.style.background = 'black';
+        timeElem.style.background = '#121212';
         inputElem.style.background = 'black';
-        dateElem.style.background = 'black';
+        dateElem.style.background = '#121212';
         document.body.style.background = '#121212';
         document.body.style.color = '#fff';
         header.style.background = 'black';
@@ -41,12 +43,13 @@ moon.addEventListener(
         headerText.innerHTML = 'Light mode'
         document.querySelectorAll('.todo-card').forEach(
           (btn) => {
-            btn.style.background = 'whitesmoke';
+            btn.style.background = '#f3f0ff';
           }
         );
-        timeElem.style.background = 'whitesmoke';
+        inputCon.style.background = 'whitesmoke';
+        timeElem.style.background = 'white';
         inputElem.style.background = 'whitesmoke';
-        dateElem.style.background = 'whitesmoke';
+        dateElem.style.background = 'white';
         document.body.style.background = '#fff';
         document.body.style.color = 'black';
         header.style.background = 'whitesmoke';
@@ -95,9 +98,9 @@ function renderTodoList() {
 
     let background = '';
     if (isDarkMode === true) {
-      background = 'black';
+      background = '#2a213d';
     } else if (isDarkMode === false) {
-      background = 'whitesmoke';
+      background = '#f3f0ff';
     }
 
     const html = `
